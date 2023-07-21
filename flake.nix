@@ -222,7 +222,7 @@
             python --version
             python -m venv .venv
             source .venv/bin/activate
-            pip install -e ".[develop,optional]"
+            pip install -e ".[develop,docs,optional]"
           '';
         };
       };

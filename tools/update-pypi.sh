@@ -8,7 +8,7 @@ rm -rf distenv
 virtualenv -p python3 distenv
 source ./distenv/bin/activate
 pip install .
-pip install .[develop]
+pip install '.[develop,docs]'
 
 echo "Updating man pages"
 rm -rf doc/build/

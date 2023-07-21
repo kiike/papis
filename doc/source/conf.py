@@ -69,8 +69,8 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "papis"
-copyright = "2017, Alejandro Gallo"
+project = papis.__name__
+copyright = "2017 {}".format(papis.__author__)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
