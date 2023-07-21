@@ -27,25 +27,17 @@ For example, the ``yaml`` exporter in ``papis.yaml`` is defined as
             allow_unicode=True)
         return str(string)
 
-and declared in ``setup.py`` as
+and declared in ``pyproject.toml`` as
 
-.. code:: python
+.. code:: toml
 
-    setup(
-        ...
-        entry_points={
-            "papis.exporter": [
-                ...
-                "yaml=papis.yaml:exporter",
-                ...
-            ],
-        ...
-    )
+    [project.entry-points."papis.exporter"]
+    yaml = "papis.yaml:exporter"
 
 where ``yaml`` is the name of the entrypoint, ``papis.yaml`` is the module
 in which it is located and ``exporter`` is the callable used to invoke the
-plugin, i.e. the format is ``<name>=<module>:<callable>``. The exporter can be
-retrieved by name using
+plugin, i.e. the format is ``<name> = "<module>:<callable>"``. The exporter can
+be retrieved by name using
 
 .. code:: python
 
