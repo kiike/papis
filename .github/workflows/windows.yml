@@ -43,10 +43,7 @@ jobs:
             | awk -F '-' '{ printf "%s.dev%s+%s\n", substr($1, 2), $2, $3 }'
         )
         # NOTE: MSI version cannot have letters and is only "X.Y.Z"
-        msi_version=$(
-            git describe --tags --dirty \
-            | awk -F '-' '{ printf "%s.%s", substr($1, 2), $2 }'
-        )
+        msi_version=$(python tools/windows/get_version.py)
         sed -i "s/^version =\".*\"/version =\"${py_version}\"/" pyproject.toml
 
         echo "PAPIS_VERSION=${py_version}" >> "$GITHUB_ENV"
